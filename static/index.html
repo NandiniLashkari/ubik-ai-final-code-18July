@@ -133,37 +133,44 @@
       margin-right: 0;
     }
     .input-area {
-      background: #f9f9f9;
-      border-radius: 30px;
-      padding: 8px 12px;
-      display: flex;
-      align-items: center;
-      border: 1px solid #ddd;
-      position: relative;
-    }
-    .input-area button {
-      background: #E91E63;
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 5px;
-      cursor: pointer;
-    }
-    .input-area input[type="text"] {
-      flex: 1;
-      border: none;
-      outline: none;
-      background: transparent;
-      font-size: 16px;
-    }
-    .input-area img {
-      width: 25px;
-      height: 25px;
-    }
+    background: #f9f9f9;
+    border-radius: 30px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 0; /* prevents overflow in flex */
+  }
+
+  .input-area input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    min-width: 0; /* ✅ allows shrinking */
+  }
+
+  .input-area button {
+    background: #E91E63;
+    border: none;
+    border-radius: 50%;
+    width: 40px;   /* slightly bigger for tap areas */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px; /* space between buttons */
+    cursor: pointer;
+    flex-shrink: 0; /* ✅ button never shrinks */
+  }
+
+  .input-area img {
+    width: 22px;
+    height: 22px;
+  }
     #waveform {
       margin-left: auto;
       display: none;
